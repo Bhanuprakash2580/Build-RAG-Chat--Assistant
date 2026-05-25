@@ -1,0 +1,42 @@
+[
+  {
+    "title": "RAG Workflow",
+    "content": "Retrieval-Augmented Generation, or RAG, answers a user question by first generating an embedding for the query, searching a vector store for similar document chunks, retrieving the most relevant chunks, building a prompt with that context, and then sending the grounded prompt to the LLM. This reduces guessing because the model receives specific information from the knowledge base before it writes an answer."
+  },
+  {
+    "title": "Similarity Threshold and Hallucination Control",
+    "content": "A similarity threshold reduces hallucination by blocking weak or unrelated retrieval results. After cosine similarity ranks the document chunks, the system checks whether the best scores are high enough to trust. If every score is below the threshold, the assistant returns a safe fallback response instead of sending irrelevant context to the LLM. This prevents the model from inventing an answer when the knowledge base does not contain enough information."
+  },
+  {
+    "title": "Embedding Strategy",
+    "content": "Embeddings convert text into numerical vectors so the system can compare meaning mathematically. During indexing, every document chunk is embedded and stored with metadata such as title, source, and chunk id. During querying, the user question is embedded into the same vector space. Cosine similarity compares the query vector with stored chunk vectors to find semantically related content."
+  },
+  {
+    "title": "Chunking Strategy",
+    "content": "Documents are split into smaller chunks before embedding because large documents can contain many unrelated ideas. Chunking improves retrieval accuracy by letting the vector search return the most relevant passage instead of an entire document. The recommended chunk size is about 300 to 500 tokens, with optional overlap so important context is not lost between chunks."
+  },
+  {
+    "title": "Prompt Design",
+    "content": "The RAG prompt contains retrieved context, short conversation history, and the current user question. The prompt instructs the assistant to use only the provided context and to say when there is not enough information. A low temperature such as 0.2 is used so responses stay consistent, factual, and grounded in the retrieved documents."
+  },
+  {
+    "title": "Conversation History",
+    "content": "Conversation history is stored per session id so the assistant can understand follow-up questions. The system keeps only the last few message pairs, usually three to five, to preserve useful context without making the prompt too large. Retrieved knowledge-base context remains the primary source of truth, and history is only used to understand the conversation."
+  },
+  {
+    "title": "Frontend Session Management with localStorage",
+    "content": "localStorage is used in the frontend to store a sessionId in the user's browser. This allows the same browser session to keep a stable identifier across page refreshes, so the backend can associate chat messages with the correct conversation history. localStorage is simple, built into browsers, and appropriate for this basic HTML, CSS, and JavaScript assignment because it does not require authentication or a database."
+  },
+  {
+    "title": "API Error Handling",
+    "content": "The chat API validates request payloads and returns structured errors for missing or invalid fields. It also handles provider failures such as invalid API keys, timeouts, and rate limits. Structured errors keep the application from crashing and make it easier for the frontend to display clear messages to the user."
+  },
+  {
+    "title": "Vector Storage Choice",
+    "content": "The project uses an in-memory vector store for simplicity. Each stored record contains the chunk text, embedding vector, title, source document, and chunk id. In-memory storage is easy to understand for an assignment and works well for a small knowledge base. A production system could replace it with SQLite, ChromaDB, or FAISS for persistence and scalability."
+  },
+  {
+    "title": "OpenAI and Local Development Modes",
+    "content": "The project supports OpenAI for real LLM and embedding calls when API keys are configured. For local demos without API quota, the provider can be set to local. Local mode uses a simple TF-IDF style vectorizer and extractive grounded responses, allowing the RAG flow, similarity threshold, session history, and frontend to be tested without external API calls."
+  }
+]

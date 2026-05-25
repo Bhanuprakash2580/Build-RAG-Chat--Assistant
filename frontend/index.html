@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAG Support Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="chat-panel" aria-label="RAG chat assistant">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">TRUEAILAB Assignment</p>
+            <h1>RAG Support Assistant</h1>
+          </div>
+          <button id="newChat" class="secondary" type="button">New Chat</button>
+        </header>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="chatForm" class="composer">
+          <input
+            id="messageInput"
+            type="text"
+            placeholder="Ask about passwords, billing, exports, roles..."
+            autocomplete="off"
+            required
+          />
+          <button id="sendButton" type="submit">Send</button>
+        </form>
+        <p id="loading" class="loading" hidden>Retrieving context and generating answer...</p>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
