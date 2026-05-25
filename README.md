@@ -191,12 +191,3 @@ Add screenshots after running the local app:
 - Successful grounded answer
 - Fallback answer for an unknown question
 
-## Submission Format
-
-```text
-GitHub Repository:
-https://github.com/<username>/<repository>
-
-Live Application:
-https://your-app-url.com
-```
