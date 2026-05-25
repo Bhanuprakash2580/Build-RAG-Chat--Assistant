@@ -187,7 +187,10 @@ OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 
 Add screenshots after running the local app:
 
-- Chat interface
+- Chat interface 
+<img width="2559" height="1397" alt="Screenshot 2026-05-26 004117" src="https://github.com/user-attachments/assets/ef28106b-b08c-448a-ad29-402378a32e45" />
+
 - Successful grounded answer
-- Fallback answer for an unknown question
+  <img width="2559" height="1406" alt="Screenshot 2026-05-26 004522" src="https://github.com/user-attachments/assets/abc1fbb8-d889-4531-a863-3674711ecafe" />
+
 
